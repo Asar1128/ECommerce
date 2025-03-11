@@ -1,0 +1,16 @@
+@import "tailwindcss";
+body{
+  font-family: "JetBrains Mono", monospace;
+}
+.container{
+  width: 100%;
+  max-width: 1400px;
+  margin-inline: auto;
+
+}
+.logo{
+  align-items: center;
+}
+.Links ul li{
+  padding-right: 5rem;
+}
