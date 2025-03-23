@@ -5,7 +5,7 @@ const ProductInitialState = {
     products: products, 
     isLoading: false,
     filterDiscoutedProducts: JSON.parse(sessionStorage.getItem("filteredData")) || [],
-};
+    filtereProducts: JSON.parse(sessionStorage.getItem("data")) || []};
 
 const productSlice = createSlice({
     name: "product",
@@ -27,8 +27,21 @@ const productSlice = createSlice({
                 console.error("Error filtering products:", error);
             }
         },
-    }
+        filterProducts: (state, action) => {
+            try {
+                if (action.payload === "All") {
+                    state.filtereProducts= state.products;
+                } else {
+                    state.filtereProducts = state.products.filter((product) => product.type === action.payload);
+                }
+                console.log("Filtered Products Init", state.filtereProducts);
+                sessionStorage.setItem("data", JSON.stringify(state.filtereProducts));
+            } catch (error) {
+                console.error("Error filtering products:", error);
+            }
+        },
+    },
 });
 
-export const { setProducts, setLoading, filterDiscoutedProducts } = productSlice.actions;
+export const { setProducts, setLoading, filterDiscoutedProducts , filterProducts } = productSlice.actions;
 export default productSlice.reducer;

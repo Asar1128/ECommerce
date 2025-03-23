@@ -6,26 +6,19 @@ import Footer from "../Components/footer/footer";
 
 import products from "../Components/dummydata/dummydata";
 import DiscountedProducts from "./DiscountedProducts";
+import Item from "../Components/Items/Item";
+import BestSales from "./BestSales";
+import StaticMenShoes from "./StaticMenShoes";
 
 function LandinPage() {
   return (
     <>
-      <Header />
-  <DiscountedProducts/>
-      {/* {products.map((item, index) => {
-        return (
-          <div key={item.id}>
-            <div>
-              <img src={item.img} alt="" />
-            </div>
-            <div>{item.name}</div>
-            <div>{item.size}</div>
-            <div>{item.color}</div>
-            <div>{item.gender}</div>
-            <div>{item.price}</div>
-          </div>
-        );
-      })} */}
+     <Header />
+    <div className="flex gap-2.5 flex-wrap justify-center">
+    <DiscountedProducts/>
+    </div>
+    <BestSales/>
+    <StaticMenShoes/>
       <Outlet />
       <Footer />
     </>
