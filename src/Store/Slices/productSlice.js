@@ -1,11 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 import products from "../../Components/dummydata/dummydata"; // Dummy data
+import FeatureProductData from "../../Components/dummydata/featureProducts";
 
 const ProductInitialState = {
     products: products, 
+    FeatureProductData:FeatureProductData,
     isLoading: false,
     filterDiscoutedProducts: JSON.parse(sessionStorage.getItem("filteredData")) || [],
-    filtereProducts: JSON.parse(sessionStorage.getItem("data")) || []};
+    filtereProducts: JSON.parse(sessionStorage.getItem("data")) || [],
+    featureProduct:JSON.parse(sessionStorage.getItem("FeatureProduct")) || [],
+
+};
 
 const productSlice = createSlice({
     name: "product",
@@ -40,8 +45,14 @@ const productSlice = createSlice({
                 console.error("Error filtering products:", error);
             }
         },
+       featureProduct:(state , action)=>{
+           const FProduct = state.products.filter((product)=>product.isFeatured === true)
+           state.featureProduct =FProduct;
+           sessionStorage.setItem("FeatureProduct" , JSON.stringify(FProduct));
+           console.log("FeatureProducts : " , FProduct)
+       },
     },
 });
 
-export const { setProducts, setLoading, filterDiscoutedProducts , filterProducts } = productSlice.actions;
+export const { setProducts, setLoading, filterDiscoutedProducts , filterProducts , featureProduct } = productSlice.actions;
 export default productSlice.reducer;

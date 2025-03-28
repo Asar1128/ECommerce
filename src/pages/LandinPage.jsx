@@ -9,6 +9,7 @@ import DiscountedProducts from "./DiscountedProducts";
 import Item from "../Components/Items/Item";
 import BestSales from "./BestSales";
 import StaticMenShoes from "./StaticMenShoes";
+import FeaturedProduct from "./FeaturedProduct";
 
 function LandinPage() {
   return (
@@ -19,6 +20,7 @@ function LandinPage() {
     </div>
     <BestSales/>
     <StaticMenShoes/>
+    <FeaturedProduct />
       <Outlet />
       <Footer />
     </>
