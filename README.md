@@ -14,7 +14,3 @@ React Router for navigation
 Tailwind CSS for styling
 Redux  for state management
 This project aims to provide a user-friendly and visually appealing shopping experience.
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-
